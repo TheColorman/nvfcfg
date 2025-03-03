@@ -21,7 +21,7 @@ in {
       # Now that neio are used for navigation, their old actions need to be remapped
       (mkKeymap "n" "t" "i" {desc = "(t)ype";}) # (i)nsert
       (mkKeymap "n" "T" "I" {desc = "(T)ype at BoL";}) # (I)nsert
-      (mkKeymap "n" "E" "e" {desc = "(E)nd of word";}) # (e)end
+      (mkKeymap "n" "<M-e>" "e" {desc = "(e)nd of word";}) # (e)end
       (mkKeymap "n" "k" "n" {desc = "next match";}) # (n)ext match
       (mkKeymap "n" "K" "N" {desc = "previous match";}) # (N) Previous match
       (mkKeymap "n" "h" "o" {desc = "new line below";}) # (o) New line below
