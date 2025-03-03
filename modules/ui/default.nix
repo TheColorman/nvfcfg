@@ -12,7 +12,6 @@
       fastaction.enable = true;
       illuminate.enable = true;
       modes-nvim.enable = true;
-      noice.enable = true;
       smartcolumn = {
         enable = true;
         setupOpts = {
