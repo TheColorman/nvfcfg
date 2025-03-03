@@ -16,6 +16,9 @@
       yanky-nvim.enable = true;
       vim-wakatime.enable = true;
     };
-    extraPackages = [ pkgs.ueberzug ]; # For image-nvim
+    extraPackages = with pkgs; [
+      ueberzug     # For image-nvim
+      wl-clipboard # For yanky-nvim - Use xclip instead of wl-clipboard for X11
+    ];
   };
 }
