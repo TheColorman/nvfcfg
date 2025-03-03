@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   vim = {
     languages = {
       enableDAP = true;

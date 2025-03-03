@@ -1,4 +1,4 @@
-{ outputs, ... }: {
+{outputs, ...}: {
   imports = with outputs.modules; [
     meta-common
     meta-optimisation

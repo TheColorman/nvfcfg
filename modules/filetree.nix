@@ -1,5 +1,4 @@
-{ config, ... }:
-let
+{config, ...}: let
   startify = config.vim.dashboard.startify;
 in {
   vim.filetree.nvimTree = {

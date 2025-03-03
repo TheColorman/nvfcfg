@@ -1,4 +1,4 @@
-{ lib, ... }: let
+{lib, ...}: let
   inherit (lib.nvim.binds) mkKeymap;
 in {
   vim.keymaps = [

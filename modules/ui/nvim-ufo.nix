@@ -1,9 +1,9 @@
-{ ... }: {
+{...}: {
   vim = {
     ui.nvim-ufo.enable = true;
 
     options = {
-      foldlevel = 99; 
+      foldlevel = 99;
       foldlevelstart = 99;
       foldenable = true;
     };

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   vim = {
     utility = {
       # ccc.enable = true; # @TODO 2025-04-03: Check if ccc vs. otter conflict has been fixed
@@ -17,7 +16,7 @@
       vim-wakatime.enable = true;
     };
     extraPackages = with pkgs; [
-      ueberzug     # For image-nvim
+      ueberzug # For image-nvim
       wl-clipboard # For yanky-nvim - Use xclip instead of wl-clipboard for X11
     ];
   };

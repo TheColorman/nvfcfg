@@ -1,11 +1,15 @@
-{ lib, config, ... }: let
+{
+  lib,
+  config,
+  ...
+}: let
   inherit (lib.nvim.binds) mkKeymap;
   inherit (lib.modules) mkIf;
   nvim-dap = config.vim.debugger.nvim-dap;
 in {
   # Mappings for Colemak.
   # Uses neio instead of hjkl
-  
+
   config.vim = {
     keymaps = [
       (mkKeymap "n" "n" "h" {desc = "Left";})

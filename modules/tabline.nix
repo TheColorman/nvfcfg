@@ -1,4 +1,4 @@
-{ config, ... }: let
+{config, ...}: let
   cfg = config.vim.tabline.nvimBufferline;
 in {
   vim.tabline.nvimBufferline = {

@@ -1,5 +1,5 @@
-{ ... }: {
-  imports = [ ./nvim-ufo.nix ];
+{...}: {
+  imports = [./nvim-ufo.nix];
 
   vim = {
     ui = {
@@ -17,7 +17,7 @@
         enable = true;
         setupOpts = {
           custom_colorcolumn.markdown = "80";
-          disabled_filetypes = [ "help" "NvimTree" "alpha" ];
+          disabled_filetypes = ["help" "NvimTree" "alpha"];
         };
       };
     };

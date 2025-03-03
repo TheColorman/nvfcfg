@@ -1,4 +1,4 @@
-{ config, ... }: let
+{config, ...}: let
   cmp = config.vim.autocomplete.nvim-cmp;
 in {
   vim.assistant.copilot = {
