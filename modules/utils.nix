@@ -4,7 +4,7 @@
       # ccc.enable = true; # @TODO 2025-04-03: Check if ccc vs. otter conflict has been fixed
       diffview-nvim.enable = true;
       icon-picker.enable = true;
-      images.image-nvim.enable = true;
+      # images.image-nvim.enable = true;
       motion = {
         hop.enable = true;
         leap.enable = true;
@@ -16,8 +16,8 @@
       vim-wakatime.enable = true;
     };
     extraPackages = with pkgs; [
-      ueberzug # For image-nvim
-      wl-clipboard # For yanky-nvim - Use xclip instead of wl-clipboard for X11
+      # ueberzug # For image-nvim
+      # wl-clipboard # For yanky-nvim - Use xclip instead of wl-clipboard for X11
     ];
   };
 }
