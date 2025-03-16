@@ -13,25 +13,27 @@
     (flake-utils.lib.eachDefaultSystem (
       system: let
         pkgs = nixpkgs.legacyPackages.${system};
+
+        mkNvim = config:
+          (nvf.lib.neovimConfiguration {
+            inherit pkgs;
+            extraSpecialArgs = {inherit (self) outputs;};
+            modules = [config];
+          })
+          .neovim;
       in {
         packages = {
-          nvim =
-            (nvf.lib.neovimConfiguration {
-              inherit pkgs;
-              extraSpecialArgs = {inherit (self) outputs;};
-              modules = [
-                ./configurations/main.nix
-              ];
-            })
-            .neovim;
+          nvim = mkNvim ./configurations/main.nix;
           default = self.outputs.packages.${system}.nvim;
+
+          qwerty = mkNvim ./configurations/qwerty.nix;
         };
         formatter = pkgs.alejandra;
       }
     ))
     // {
       modules = import ./modules {
-        lib = nixpkgs.lib;
+        inherit (nixpkgs) lib;
       };
     };
 }
