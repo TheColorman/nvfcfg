@@ -8,6 +8,5 @@ in {
 
     # Quickly return to normal_mode
     (mkKeymap "i" ",n" "<Esc>" {desc = "Exit insert mode";})
-    (mkKeymap "i" ",n" "<Esc>" {desc = "Exit insert mode";})
   ];
 }
