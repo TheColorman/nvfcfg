@@ -1,40 +1,18 @@
-{outputs, ...}: {
-  imports = with outputs.modules; [
-    meta-common
-    meta-optimisation
+{
+  imports = [
+    ../modules/mappings/quick.nix
 
-    mappings-quick
-
-    binds-cheatsheet
-    binds-whichkey
-
-    assistant
-    autocomplete
-    autopairs
-    comments
-    dashboard
-    debugging
-    discord
-    filetree
-    formatting
-    fun
-    git
-    minimap
-    notify
-    obsidian
-    project
-    run
-    # session
-    snippets
-    spellcheck
-    statusline
-    tabline
-    telescope
-    terminal
-    theme
-    treesitter
-    ui
-    utils
-    visuals
+    ../modules/common.nix
+    ../modules/languages.nix
+    ../modules/lsp.nix
+    ../modules/debugger.nix
+    ../modules/formatter.nix
+    ../modules/visuals.nix
+    ../modules/typing.nix
+    ../modules/utility.nix
+    ../modules/assistant.nix
   ];
+
+  # Discord rich presence
+  vim.presence.neocord.enable = false;
 }
