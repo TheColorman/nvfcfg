@@ -1,41 +1,11 @@
-{outputs, ...}: {
-  imports = with outputs.modules; [
-    meta-common
-    meta-optimisation
+{
+  # only difference between qwerty and main is that main uses colemak
+  imports = [
+    ./qwerty.nix
 
-    mappings-colemak
-    mappings-quick
-
-    binds-cheatsheet
-    binds-whichkey
-
-    assistant
-    autocomplete
-    autopairs
-    comments
-    dashboard
-    debugging
-    discord
-    filetree
-    formatting
-    fun
-    git
-    minimap
-    notify
-    obsidian
-    project
-    run
-    # session
-    snippets
-    spellcheck
-    statusline
-    tabline
-    telescope
-    terminal
-    theme
-    treesitter
-    ui
-    utils
-    visuals
+    ../modules/mappings/colemak.nix
   ];
+
+  # bytecode compilation
+  vim.enableLuaLoader = true;
 }
