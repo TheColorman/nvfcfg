@@ -1,6 +1,15 @@
 {
   inputs = {
-    nvf.url = "github:notashelf/nvf";
+    nixpkgs.url = "github:nixos/nixpkgs/release-24.11";
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+    alejandra = {
+      url = "github:kamadorueda/alejandra";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -9,31 +18,25 @@
     nixpkgs,
     nvf,
     flake-utils,
-  }:
-    (flake-utils.lib.eachDefaultSystem (
-      system: let
-        pkgs = nixpkgs.legacyPackages.${system};
+    ...
+  } @ inputs: (flake-utils.lib.eachDefaultSystem (
+    system: let
+      pkgs = nixpkgs.legacyPackages.${system};
 
-        mkNvim = config:
-          (nvf.lib.neovimConfiguration {
-            inherit pkgs;
-            extraSpecialArgs = {inherit (self) outputs;};
-            modules = [config];
-          })
-          .neovim;
-      in {
-        packages = {
-          nvim = mkNvim ./configurations/main.nix;
-          default = self.outputs.packages.${system}.nvim;
+      mkNvim = config:
+        (nvf.lib.neovimConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {parentInputs = inputs;};
+          modules = [config];
+        })
+        .neovim;
+    in {
+      packages = {
+        nvim = mkNvim ./configurations/main.nix;
+        default = self.outputs.packages.${system}.nvim;
 
-          qwerty = mkNvim ./configurations/qwerty.nix;
-        };
-        formatter = pkgs.alejandra;
-      }
-    ))
-    // {
-      modules = import ./modules {
-        inherit (nixpkgs) lib;
+        qwerty = mkNvim ./configurations/qwerty.nix;
       };
-    };
+    }
+  ));
 }
