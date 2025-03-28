@@ -9,6 +9,7 @@
       tabstop = 2;
       autoindent = true;
       expandtab = false;
+      conceallevel = 2;
     };
 
     searchCase = "smart"; # only searches containing uppercase will be case sensitive
