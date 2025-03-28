@@ -9,11 +9,9 @@
 			enable = true;
 			setupOpts = {
 				formatters_by_ft.nix = ["alejandra"];
-				formatters = {
-					alejandra = {
-						command = lib.getExe parentInputs.alejandra.defaultPackage.${pkgs.stdenv.hostPlatform.system};
-						args = ["--experimental-config" ../alejandra.toml];
-					};
+				formatters.alejandra = {
+					command = lib.getExe parentInputs.alejandra.defaultPackage.${pkgs.stdenv.hostPlatform.system};
+					args = ["--experimental-config" ../alejandra.toml];
 				};
 				format_on_save = {
 					lsp_format = "fallback";
