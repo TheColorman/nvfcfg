@@ -42,7 +42,7 @@
 				};
 			};
 			colorizer.enable = true;
-			modes-nvim.enable = true;
+			# modes-nvim.enable = true; # @TODO: Doesn't really work with themes
 			illuminate.enable = true;
 			breadcrumbs = {
 				enable = true;
