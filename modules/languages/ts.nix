@@ -44,7 +44,10 @@ in {
 
     formatter.conform-nvim = {
       setupOpts = {
-        formatters_by_ft.typescript = ["prettierd"];
+        formatters_by_ft.typescript =
+          genAttrs
+          ["typescript" "javascript" "javascriptreact" "typescriptreact" "vue"]
+          (_: ["prettierd"]);
         formatters.prettierd.command = getExe pkgs.prettierd;
       };
     };
