@@ -10,6 +10,8 @@
     ../modules/typing.nix
     ../modules/utility.nix
     ../modules/assistant.nix
+
+    ../modules/plugins/kitty-scrollback.nvim.nix
   ];
 
   # Discord rich presence
