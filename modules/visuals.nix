@@ -51,7 +51,7 @@
       smartcolumn = {
         enable = true;
         setupOpts = {
-          custom_colorcolumn.markdown = "80";
+          colorcolumn = "80";
           disabled_filetypes = ["help" "NvimTree" "alpha"];
         };
       };
