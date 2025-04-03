@@ -1,6 +1,8 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/release-24.11";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable"; # Used only for kitty-scrollback.nvim
+
     flake-utils.url = "github:numtide/flake-utils";
     nvf = {
       url = "github:notashelf/nvf";
@@ -12,15 +14,18 @@
   outputs = {
     self,
     nixpkgs,
+    unstable,
     nvf,
     flake-utils,
   }: (flake-utils.lib.eachDefaultSystem (
     system: let
       pkgs = nixpkgs.legacyPackages.${system};
+      unstable-pkgs = unstable.legacyPackages.${system};
 
       mkNvim = config:
         (nvf.lib.neovimConfiguration {
           inherit pkgs;
+          extraSpecialArgs = {inherit unstable-pkgs;};
           modules = [config];
         })
         .neovim;
