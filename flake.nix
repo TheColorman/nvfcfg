@@ -12,30 +12,33 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     unstable,
     nvf,
     flake-utils,
+    ...
   }: (flake-utils.lib.eachDefaultSystem (
     system: let
       pkgs = nixpkgs.legacyPackages.${system};
       unstable-pkgs = unstable.legacyPackages.${system};
 
-      mkNvim = config:
+      mkNvim = modules:
         (nvf.lib.neovimConfiguration {
-          inherit pkgs;
+          inherit pkgs modules;
           extraSpecialArgs = {inherit unstable-pkgs;};
-          modules = [config];
         })
         .neovim;
-    in {
-      packages = {
-        nvim = mkNvim ./configurations/main.nix;
-        default = self.outputs.packages.${system}.nvim;
 
-        qwerty = mkNvim ./configurations/qwerty.nix;
+      sources = rec {
+        default = nvim;
+        nvim = ./configurations/default.nix;
+        qwerty = ./configurations/qwerty.nix;
       };
+    in {
+      packages = builtins.mapAttrs (_: value: mkNvim [value]) sources;
+      override =
+        builtins.mapAttrs (_: value: config: mkNvim [value config])
+        sources;
     }
   ));
 
