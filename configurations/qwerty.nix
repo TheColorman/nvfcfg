@@ -12,6 +12,7 @@
     ../modules/assistant.nix
 
     ../modules/plugins/kitty-scrollback.nvim.nix
+    ../modules/plugins/hex.nvim.nix
   ];
 
   # Discord rich presence
