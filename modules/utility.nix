@@ -12,7 +12,6 @@
       motion = {
         hop.enable = true;
         leap.enable = true;
-        precognition.enable = true;
       };
 
       # images.image-nvim.enable = true; # FIXME: doesn't work in wsl
