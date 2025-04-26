@@ -53,5 +53,6 @@
     # 	extensions.ts-error-translator.enable = true;
     # };
     yaml.enable = true;
+    rust.enable = true;
   };
 }
