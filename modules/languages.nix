@@ -48,10 +48,7 @@
     };
     tailwind.enable = true;
     # NOTE: TS support manually set in ./languages/ts.nix due to missing Vue support in nvf
-    # ts = {
-    # 	enable = true;
-    # 	extensions.ts-error-translator.enable = true;
-    # };
+    # ts.enable = true;
     yaml.enable = true;
     rust.enable = true;
   };
