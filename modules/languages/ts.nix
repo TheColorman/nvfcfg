@@ -4,8 +4,7 @@
   ...
 }: let
   inherit (lib) getExe;
-  inherit (lib.nvim.lua) toLuaObject;
-  inherit (lib.nvim.dag) entryAnywhere entryAfter;
+  inherit (lib.nvim.dag) entryAfter;
   inherit (lib.attrsets) genAttrs;
 
   inherit
@@ -62,14 +61,6 @@ in {
     pluginRC.eslint_cmd_override = entryAfter ["nvim-lint"] ''
       local nvim_lint_eslint_d = require('lint').linters.eslint_d
       nvim_lint_eslint_d.cmd = "${getExe pkgs.eslint_d}";
-    '';
-
-    startPlugins = ["ts-error-translator-nvim"];
-    pluginRC.ts-error-translator = entryAnywhere ''
-      require("ts-error-translator").setup(${toLuaObject {
-        # This is the default configuration behaviour.
-        auto_override_publish_diagnostics = true;
-      }})
     '';
   };
 }
