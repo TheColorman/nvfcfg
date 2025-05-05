@@ -48,6 +48,14 @@ in {
           ["typescript" "javascript" "javascriptreact" "typescriptreact" "vue"]
           (_: ["prettierd"]);
         formatters.prettierd.command = getExe pkgs.prettierd;
+        format_on_save = lib.generators.mkLuaInline ''
+          function (bufnr)
+          	if vim.b.disableFormatSave then
+          		return
+          	end
+          	return { timeout_ms = 500, lsp_format = "fallback" }
+          end
+        '';
       };
     };
 
