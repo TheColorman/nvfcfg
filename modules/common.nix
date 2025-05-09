@@ -10,7 +10,7 @@ in {
       shiftwidth = 2;
       tabstop = 2;
       autoindent = true;
-      expandtab = false;
+      expandtab = true;
       conceallevel = 2;
     };
 
