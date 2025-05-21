@@ -17,8 +17,11 @@ in {
     searchCase = "smart"; # only searches containing uppercase will be case sensitive
     syntaxHighlighting = true;
     undoFile.enable = true;
-    useSystemClipboard = true;
     bell = "on";
+
+    luaConfigRC.clipboard = ''
+      vim.opt.clipboard:append("unnamedplus")
+    '';
 
     # Spellchecking in strings and comments
     spellcheck = {
