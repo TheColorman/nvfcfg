@@ -1,8 +1,11 @@
 {pkgs, ...}: {
-  vim.lazy.plugins."hex.nvim" = {
-    package = pkgs.vimPlugins.hex-nvim;
-    setupModule = "hex";
+  vim = {
+    lazy.plugins."hex.nvim" = {
+      package = pkgs.vimPlugins.hex-nvim;
+      setupModule = "hex";
 
-    lazy = false;
+      lazy = false;
+    };
+    extraPackages = [pkgs.unixtools.xxd];
   };
 }
