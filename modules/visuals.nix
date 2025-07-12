@@ -14,12 +14,8 @@
       cellular-automaton.enable = true;
     };
 
-    statusline = {
-      lualine = {
-        enable = true;
-        theme = "palenight";
-      };
-    };
+    statusline.lualine.enable = true;
+
     theme = {
       enable = true;
       name = "tokyonight";
