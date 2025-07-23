@@ -1,5 +1,8 @@
 {
-  imports = [./languages/ts.nix];
+  imports = [
+    ./languages/json.nix
+    ./languages/ts.nix
+  ];
 
   # List of languages to enable formatting and LSP support for
   vim = {
