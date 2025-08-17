@@ -1,6 +1,4 @@
 {
-  vim.assistant.copilot = {
-    enable = true;
-    cmp.enable = true;
-  };
+  # TODO: Find a neovim plugin with an autocomplete-copilot-like plugin that
+  # supports a custom model or just Claude
 }
