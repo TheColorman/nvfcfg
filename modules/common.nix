@@ -26,7 +26,8 @@ in {
     # Spellchecking in strings and comments
     spellcheck = {
       enable = true;
-      programmingWordlist.enable = true;
+      # Keeps asking me to download?
+      # programmingWordlist.enable = true;
     };
 
     # File tree
