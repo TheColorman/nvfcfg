@@ -1,7 +1,7 @@
 {
   imports = [
     ./languages/json.nix
-    ./languages/ts.nix
+    ./languages/vue.nix
   ];
 
   # List of languages to enable formatting and LSP support for
@@ -51,8 +51,6 @@
         extraDiagnostics.enable = false;
       };
       tailwind.enable = true;
-      # NOTE: TS support manually set in ./languages/ts.nix due to missing Vue support in nvf
-      # ts.enable = true;
       yaml.enable = true;
       rust.enable = true;
     };
