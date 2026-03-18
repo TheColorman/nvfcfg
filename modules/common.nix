@@ -80,8 +80,6 @@ in {
       vim-fugitive.enable = true;
     };
 
-    minimap.codewindow.enable = true;
-
     dashboard.alpha.enable = true;
     notify = {
       nvim-notify.enable = true;
