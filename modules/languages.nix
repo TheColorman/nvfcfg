@@ -28,23 +28,11 @@
       };
       nix = {
         enable = true;
-        lsp = {
-          server = "nil";
-          # @TODO: For some reasons nvf does not support passing options to nil, only nixd?
-          # options = {
-          #   nix = {
-          #     maxMemoryMB = 8192; # 8 GiB
-          #     flake = {
-          #       autoArchive = true;
-          #       autoEvalInputs = true;
-          #     };
-          #   };
-          # };
-        };
+        format.type = ["nixfmt"];
       };
       python = {
         enable = true;
-        format.type = "ruff";
+        format.type = ["ruff"];
       };
       svelte = {
         enable = true;
