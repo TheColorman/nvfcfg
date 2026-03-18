@@ -6,7 +6,10 @@
   inherit (lib) getExe;
 in {
   vim = {
-    treesitter.grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [json jsonc];
+    treesitter.grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+      json
+      json5
+    ];
 
     lsp.lspconfig.sources.jsonls = ''
       local json_capabilities = vim.lsp.protocol.make_client_capabilities()
