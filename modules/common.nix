@@ -1,6 +1,8 @@
-{lib, ...}: let
+{ lib, ... }:
+let
   inherit (lib.nvim.binds) mkKeymap;
-in {
+in
+{
   vim = {
     # Aliases
     viAlias = true;
@@ -41,7 +43,7 @@ in {
       };
     };
     keymaps = [
-      (mkKeymap "n" "<leader>n" "<Cmd>Neotree reveal<CR>" {desc = "reveal filetree";})
+      (mkKeymap "n" "<leader>n" "<Cmd>Neotree reveal<CR>" { desc = "reveal filetree"; })
     ];
 
     # See available keybinds
@@ -88,18 +90,6 @@ in {
     projects.project-nvim.enable = true;
 
     notes = {
-      obsidian = {
-        enable = true;
-        setupOpts = {
-          completion.nvim_cmp = true;
-          workspaces = [
-            {
-              name = "brain";
-              path = "~/brain";
-            }
-          ];
-        };
-      };
       orgmode.enable = false; # TODO: I should try orgmode out some day
       todo-comments.enable = true;
     };
